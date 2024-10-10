@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+    ---paleBlue: hsl(243, 100%, 93%);
+    ---grayishBlue: hsl(229, 7%, 55%);
+    ---darkBlue: hsl(228, 56%, 26%);
+    ---veryDarkBlue: hsl(229, 57%, 11%);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+}
+
+body {
+    background-image: url('./images/bg-desktop.png');
+    height: 100vh;
+    width: 100vw;
+    background-color: var(---veryDarkBlue);
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    background-position-y: calc(120%);
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: flex-end;
+}
+
+.storage-card {
+    background-color: var(---darkBlue);
+    height: 10rem;
+    width: 22rem;
+    border-radius: 10px;
+    border-top-right-radius: 90px; 
+    display: grid;
+    align-items: center;
+    justify-content: left;
+    box-sizing: border-box;
+    padding-left: 2.5rem;
+}
+
+.storage-card .icons {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-top: calc(-20%);
+}
+
+.storage-card .icons button {
+    width: 45px;
+    height: 45px;
+    background-color: var(---veryDarkBlue);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.info-card {
+    background-color: var(---darkBlue);
+    box-sizing: border-box;
+    padding: 2rem 6rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card p {
+    padding: 1rem auto;
+}
+
+.info-card .range {
+    display: flex;
+    justify-content: space-between;
+}
+
+.prog-bar input {
+    width: 15rem;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 5rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default appearance */
+    appearance: none; /* Remove default appearance */
+    width: 20px; /* Width of the thumb */
+    height: 2rem; /* Height of the thumb */
+    border-radius: 50%; /* Round shape */
+    background: #f00; /* Color of the thumb */
+    cursor: pointer; /* Cursor style */ 
+}
