@@ -68,6 +68,7 @@ main {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .info-card p {
@@ -83,16 +84,87 @@ main {
     width: 15rem;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
-    height: 5rem;
+.remainder {
+    position: absolute;
+    right: 30px;
+    top: -50px;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #202A43;
+    font-weight: bold;
 }
 
+.remainder span {
+    font-size: 2rem;
+    color: #000;
+}
+
+.remainder::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; 
+    right: 20px; 
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; 
+    border-right: 10px solid transparent;
+    border-top: 10px solid white; 
+  }
+
+input[type="range"] {
+    -webkit-appearance: none; 
+    width: 300px;
+    height: 10px;
+    background: #202A43; /* Background of slider */
+    border-radius: 5px;
+    outline: none;
+    overflow: hidden;
+    border: 1px solid #4C5271;
+}
+
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, #FF5C7C 80%, #202A43 80%);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, #FF5C7C 80%, #202A43 80%);
+    border-radius: 5px;
+}
+
+/* Customizing the thumb (the circular part) */
 input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Remove default appearance */
-    appearance: none; /* Remove default appearance */
-    width: 20px; /* Width of the thumb */
-    height: 2rem; /* Height of the thumb */
-    border-radius: 50%; /* Round shape */
-    background: #f00; /* Color of the thumb */
-    cursor: pointer; /* Cursor style */ 
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #FF5C7C; /* Circle color */
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    margin-top: -5px; 
+    position: relative;
+    z-index: 2;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #FF5C7C;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+/* Focus states (optional for accessibility) */
+input[type="range"]:focus {
+    outline: none;
 }
