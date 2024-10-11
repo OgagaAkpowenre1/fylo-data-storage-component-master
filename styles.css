@@ -189,6 +189,8 @@ input[type="range"]:focus {
 @media screen and (max-width: 375px) {
     body {
         background-image: url('./images/bg-mobile.png');
+        background-position: center;
+        background-size: cover;
     }
 
     main {
