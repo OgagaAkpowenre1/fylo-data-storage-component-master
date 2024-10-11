@@ -92,7 +92,7 @@ main {
     padding: 1rem 1.5rem;
     border-radius: 8px;
     text-align: center;
-    color: #202A43;
+    color: var(---grayishBlue);;
     font-weight: bold;
 }
 
@@ -104,13 +104,13 @@ main {
 .remainder::after {
     content: '';
     position: absolute;
-    bottom: -10px; 
-    right: 20px; 
+    bottom: -20px; 
+    right: 0px; 
     width: 0;
     height: 0;
-    border-left: 10px solid transparent; 
-    border-right: 10px solid transparent;
-    border-top: 10px solid white; 
+    border-right: 20px solid white;
+    border-top: 30px solid transparent; 
+    border-bottom: 30px solid transparent;
   }
 
 input[type="range"] {
