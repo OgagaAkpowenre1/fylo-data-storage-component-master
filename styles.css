@@ -202,7 +202,8 @@ input[type="range"]:focus {
     }
 
     .remainder {
-        top: 130px
+        top: 130px;
+        right: 60px
     }
 
     .remainder::after {
