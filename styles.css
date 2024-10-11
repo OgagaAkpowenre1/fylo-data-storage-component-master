@@ -185,12 +185,19 @@ input[type="range"]:focus {
     outline: none;
 }
 
+@media screen and (max-width: 768px){
+    main {
+        padding: 0;
+    }
+}
+
 
 @media screen and (max-width: 375px) {
     body {
         background-image: url('./images/bg-mobile.png');
         background-position: center;
         background-size: cover;
+        background-color: red;
     }
 
     main {
@@ -205,7 +212,7 @@ input[type="range"]:focus {
 
     .remainder {
         top: 130px;
-        right: 60px
+        right:4.1em
     }
 
     .remainder::after {
