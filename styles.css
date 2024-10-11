@@ -76,7 +76,6 @@ main {
     position: relative;
     align-self: center;
     width: 100%;
-    /* max-width: 600px; */
     max-width: calc((540 / 16)* 1rem);
     margin-top: 2.5rem;
 }
@@ -176,7 +175,8 @@ main {
     main {
         width: 85vw;
         margin: auto;
-        padding: 0px
+        padding: 0px;
+        height:80vh;
     }
 
     .storage-card {
