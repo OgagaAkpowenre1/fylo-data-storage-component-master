@@ -5,6 +5,7 @@
     ---grayishBlue: hsl(229, 7%, 55%);
     ---darkBlue: hsl(228, 56%, 26%);
     ---veryDarkBlue: hsl(229, 57%, 11%);
+    --gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
 }
 
 
@@ -27,15 +28,19 @@ body {
 
 main {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    align-items: flex-end;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    place-items: center;
+    gap: 1rem;
+    height: 90vh;
+    padding: 0rem 10rem;
 }
 
 .storage-card {
     background-color: var(---darkBlue);
-    height: 10rem;
-    width: 22rem;
+    height: 100%;
+    max-height: 12rem;
+    width: 100%;
+    max-width: 22rem;
     border-radius: 10px;
     border-top-right-radius: 90px; 
     display: grid;
@@ -43,6 +48,7 @@ main {
     justify-content: left;
     box-sizing: border-box;
     padding-left: 2.5rem;
+    align-self: center;
 }
 
 .storage-card .icons {
@@ -53,8 +59,8 @@ main {
 }
 
 .storage-card .icons button {
-    width: 45px;
-    height: 45px;
+    width: 3em;
+    height: 3em;
     background-color: var(---veryDarkBlue);
     border: none;
     border-radius: 7px;
@@ -64,15 +70,21 @@ main {
 .info-card {
     background-color: var(---darkBlue);
     box-sizing: border-box;
-    padding: 2rem 6rem;
+    padding: 2.5rem 2rem;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     position: relative;
+    align-self: center;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 2.5rem;
 }
 
 .info-card p {
-    padding: 1rem auto;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    color: #fff;
 }
 
 .info-card .range {
@@ -80,13 +92,19 @@ main {
     justify-content: space-between;
 }
 
+.prog-bar {
+    width: 100%;
+    max-width: 450px;
+}
+
 .prog-bar input {
-    width: 15rem;
+    width: 100%;
+    max-width: 450px;
 }
 
 .remainder {
     position: absolute;
-    right: 30px;
+    right: 50px;
     top: -50px;
     background: white;
     padding: 1rem 1.5rem;
@@ -98,7 +116,7 @@ main {
 
 .remainder span {
     font-size: 2rem;
-    color: #000;
+    color: var(---veryDarkBlue);
 }
 
 .remainder::after {
@@ -115,9 +133,8 @@ main {
 
 input[type="range"] {
     -webkit-appearance: none; 
-    width: 300px;
-    height: 10px;
-    background: #202A43; /* Background of slider */
+    height: 15px;
+    /* background: var(---veryDarkBlue);  */
     border-radius: 5px;
     outline: none;
     overflow: hidden;
@@ -127,9 +144,9 @@ input[type="range"] {
 
 input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 10px;
-    background: linear-gradient(to right, #FF5C7C 80%, #202A43 80%);
-    border-radius: 5px;
+    height: 16px;
+    background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    border-radius: 60px;
     z-index: 1;
 }
 
@@ -137,20 +154,19 @@ input[type="range"]::-moz-range-track {
     width: 100%;
     height: 10px;
     background: linear-gradient(to right, #FF5C7C 80%, #202A43 80%);
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 /* Customizing the thumb (the circular part) */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
-    background-color: #FF5C7C; /* Circle color */
+    width: 0.75em;
+    height: 0.75em;
+    background-color: #FFF; /* Circle color */
     border-radius: 50%;
-    border: 2px solid white;
     cursor: pointer;
-    margin-top: -5px; 
+    margin-top: 0.15em; 
     position: relative;
     z-index: 2;
 }
@@ -167,4 +183,29 @@ input[type="range"]::-moz-range-thumb {
 /* Focus states (optional for accessibility) */
 input[type="range"]:focus {
     outline: none;
+}
+
+
+@media screen and (max-width: 375px) {
+    body {
+        background-image: url('./images/bg-mobile.png');
+    }
+
+    main {
+        width: 85vw;
+        margin: auto;
+        padding: 0px
+    }
+
+    .storage-card {
+        margin-top: 2em;
+    }
+
+    .remainder {
+        top: 145px
+    }
+
+    .remainder::after {
+        display: none;
+    }
 }
